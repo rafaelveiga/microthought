@@ -1,10 +1,11 @@
 import Header from "../components/Header";
 import MicroList from "../components/MicroList";
+import Title from "../components/Title";
 
 function MyMicros() {
   return (
     <>
-      <h2 className="text-2xl font-extrabold text-gray-800">My Micros</h2>
+      <Title>My Micros</Title>
 
       <MicroList />
     </>
