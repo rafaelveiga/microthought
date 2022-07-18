@@ -1,17 +1,15 @@
 import { Link } from "react-router-dom";
+import { Micro } from "../structs/micros";
 
-const MicroPreview = () => (
+interface MicroPreviewProps {
+  data: Micro;
+}
+
+const MicroPreview = (props: MicroPreviewProps) => (
   <div className="shadow-md px-6 py-6 mt-2 mb-3 bg-white rounded-md">
-    <h3 className="text-lg font-bold text-gray-700">
-      Lorem ipsum dolor sit amet
-    </h3>
+    <h3 className="text-lg font-bold text-gray-700">{props.data.title}</h3>
     <p className="text-sm text-gray-500 mt-2 leading-6">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-      reprehenderit repellendus ad assumenda quaerat voluptatibus commodi,
-      officia excepturi dolorum ut cum recusandae dolor voluptate, enim quam
-      sapiente maiores nihil et libero voluptates quod quos officiis pariatur.
-      Autem perspiciatis corrupti nulla ipsa beatae repudiandae voluptatum
-      deleniti aspernatur esse a. Voluptatem, ut...
+      {props.data.content}...
       <Link to="/123/slug" className="font-bold text-blue-500">
         Read More
       </Link>
