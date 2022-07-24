@@ -11,7 +11,10 @@ import { API_BASE_URL } from "./utils/constants";
 
 const client = new ApolloClient({
   uri: API_BASE_URL,
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    dataIdFromObject: (o) =>
+      o.id ? `${o.__typename}-${o.id}` : `${o.__typename}-${o.cursor}`,
+  }),
 });
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

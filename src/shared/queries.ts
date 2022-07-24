@@ -10,3 +10,14 @@ export const GET_MICROS = gql`
     }
   }
 `;
+
+export const ADD_MICRO = gql`
+  mutation AddMicro($title: String!, $content: String!, $date: String!) {
+    addMicro(title: $title, content: $content, date: $date) {
+      title
+      content
+      date
+      id
+    }
+  }
+`;

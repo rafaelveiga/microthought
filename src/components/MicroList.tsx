@@ -4,18 +4,16 @@ import { Micro, MicroList } from "../structs/micros";
 import MicroPreview from "./MicroPreview";
 
 const MicroPreviewList = () => {
-  const micros: QueryResult<MicroList> = useQuery(GET_MICROS);
+  const { data, loading, error }: QueryResult<MicroList> = useQuery(GET_MICROS);
 
-  console.log(micros);
+  console.log(data);
 
   return (
     <div className="container grid grid-cols-3 gap-x-5">
-      {micros.loading && "Loading..."}
+      {loading && "Loading..."}
 
-      {!micros.loading &&
-        micros.data?.micros.map((micro: Micro) => (
-          <MicroPreview data={micro} />
-        ))}
+      {!loading &&
+        data?.micros.map((micro: Micro) => <MicroPreview data={micro} />)}
     </div>
   );
 };
